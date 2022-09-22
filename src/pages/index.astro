@@ -1,0 +1,88 @@
+---
+import { Image } from '@astrojs/image/components';
+import me from '../images/me.png';
+import SpotifySection from '../sections/SpotifySection';
+import PageContainer from '@components/Layouts/PageContainer.astro';
+import Header from '@components/Header.astro';
+
+import { Nav } from '@components/Header.astro';
+import type { NowPlayingTrackResponse } from '@api/now';
+
+const URL = import.meta.env.URL;
+
+const nowPlayingResponse = await fetch(`${URL}/now`);
+const nowPlayingTrack =
+  (await nowPlayingResponse.json()) as NowPlayingTrackResponse;
+
+const tracksResponse = await fetch(`${URL}/tracks`);
+const tracks = await tracksResponse.json();
+
+const artistResponse = await fetch(`${URL}/artists`);
+const artists = await artistResponse.json();
+
+const SpotifySectionProps = {
+  nowPlaying: nowPlayingTrack,
+  tracks: tracks,
+  artist: artists,
+};
+---
+
+<html lang="en">
+  <head>
+    <title>"Barsi | Portfolio"</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="follow, index" />
+    <meta content="Barsi's portfolio website" name="description" />
+    <meta property="og:url" content={'https://barsi.me/'} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Barsi's portfolio website" />
+
+    <meta name="theme-color" content=" #f087bd " />
+    <meta property="og:description" content="Barsi's portfolio website" />
+    <meta property="og:title" content="Barsi | Portfolio" />
+    <meta property="og:image" content="/banner.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Barsi | Portfolio" />
+    <meta name="twitter:description" content="Spotify stats for nexxel" />
+    <meta name="twitter:image" content="/banner.png" />
+  </head>
+  <body>
+    <div
+      class="bg-c-bg scoll-smooth snap-y snap-mandatory h-screen overflow-scroll overflow-x-hidden"
+    >
+      <PageContainer>
+        <Header current={Nav.HOME} />
+        <content class="flex flex-col gap-8 justify-center items-center mt-32">
+          <Image
+            src={me}
+            alt=""
+            width="200px"
+            height="200px"
+            class="rounded-full"
+          />
+          <h1
+            class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-c-cyan to-c-teal text-8xl"
+          >
+            Barsi
+          </h1>
+        </content>
+      </PageContainer>
+
+      <PageContainer>
+        <SpotifySection
+          {...SpotifySectionProps}
+        />
+      </PageContainer>
+
+      <PageContainer>TEST</PageContainer>
+      <PageContainer>TEST</PageContainer>
+    </div>
+  </body>
+</html>

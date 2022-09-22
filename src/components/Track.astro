@@ -1,0 +1,13 @@
+---
+import type { TrackResponse } from '../pages/api/tracks';
+
+const { title, img, url, artist } = Astro.props as TrackResponse;
+---
+
+<div class="">
+  <a href={url}>
+    <img width={70} height={70} src={img} alt={`Album cover of ${title}`} />
+    <p>{title}</p>
+    <p>{artist}</p>
+  </a>
+</div>

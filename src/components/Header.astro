@@ -1,0 +1,23 @@
+---
+const { current } = Astro.props;
+
+export enum Nav {
+  HOME,
+  BLOG,
+}
+---
+
+<header
+  class="flex text-c-fg gap-10 text-lg justify-center items-center my-5 bg-gray font-mono"
+>
+  <div class={`cursor-pointer ${current === Nav.HOME ? 'text-c-blue' : ''}`}>
+    Home
+  </div>
+  <div class={`cursor-pointer ${current === Nav.BLOG ? 'text-c-blue' : ''}`}>
+    Blog
+  </div>
+</header>
+
+<style>
+
+</style>
