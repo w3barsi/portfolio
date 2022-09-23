@@ -21,6 +21,7 @@ export const get = async () => {
     img: track.album.images[1].url,
   }));
 
+
   return new Response(JSON.stringify({ tracks }), {
     status: 200,
   });

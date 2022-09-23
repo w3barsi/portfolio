@@ -1,35 +1,35 @@
 ---
-import { Image } from '@astrojs/image/components';
-import me from '../images/me.png';
 import SpotifySection from '../sections/SpotifySection';
-import PageContainer from '@components/Layouts/PageContainer.astro';
-import Header from '@components/Header.astro';
+import PageContainer from '../components/Layouts/PageContainer.astro';
+import Header from '../components/Header.astro';
+import { Nav } from '../components/Header.astro';
 
-import { Nav } from '@components/Header.astro';
-import type { NowPlayingTrackResponse } from '@api/now';
+// Types Import
 
-const URL = import.meta.env.URL;
+/*const URL = import.meta.env.URL;*/
 
-const nowPlayingResponse = await fetch(`${URL}/now`);
-const nowPlayingTrack =
-  (await nowPlayingResponse.json()) as NowPlayingTrackResponse;
+/*const nowPlayingResponse = await fetch(`${URL}/now`);*/
+/*const nowPlayingTrack =*/
+/*(await nowPlayingResponse.json()) as NowPlayingTrackResponse;*/
 
-const tracksResponse = await fetch(`${URL}/tracks`);
-const tracks = await tracksResponse.json();
+/*const tracksResponse = await fetch(`${URL}/tracks`);*/
+/*const tracks = await tracksResponse.json();*/
 
-const artistResponse = await fetch(`${URL}/artists`);
-const artists = await artistResponse.json();
+/*const artistResponse = await fetch(`${URL}/artists`);*/
+/*const artists = await artistResponse.json();*/
 
-const SpotifySectionProps = {
-  nowPlaying: nowPlayingTrack,
-  tracks: tracks,
-  artist: artists,
-};
+import { TracksMockData } from '../lib/spotify-mock-data';
+import { ArtistMockData } from '../lib/spotify-mock-data';
+import { NowPlayingMockData } from '../lib/spotify-mock-data';
+
+const nowPlayingTrack = NowPlayingMockData;
+const { artists } = ArtistMockData;
+const { tracks } = TracksMockData;
 ---
 
 <html lang="en">
   <head>
-    <title>"Barsi | Portfolio"</title>
+    <title>Barsi | Portfolio</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -43,7 +43,7 @@ const SpotifySectionProps = {
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Barsi's portfolio website" />
 
-    <meta name="theme-color" content=" #f087bd " />
+    <meta name="theme-color" content="#f087bd" />
     <meta property="og:description" content="Barsi's portfolio website" />
     <meta property="og:title" content="Barsi | Portfolio" />
     <meta property="og:image" content="/banner.png" />
@@ -53,15 +53,16 @@ const SpotifySectionProps = {
     <meta name="twitter:description" content="Spotify stats for nexxel" />
     <meta name="twitter:image" content="/banner.png" />
   </head>
-  <body>
+
+  <body class="flex flex-col h-screen">
     <div
       class="bg-c-bg scoll-smooth snap-y snap-mandatory h-screen overflow-scroll overflow-x-hidden"
     >
       <PageContainer>
         <Header current={Nav.HOME} />
         <content class="flex flex-col gap-8 justify-center items-center mt-32">
-          <Image
-            src={me}
+          <img
+            src="./me.png"
             alt=""
             width="200px"
             height="200px"
@@ -77,12 +78,12 @@ const SpotifySectionProps = {
 
       <PageContainer>
         <SpotifySection
-          {...SpotifySectionProps}
+          tracks={tracks}
+          artists={artists}
+          nowPlaying={nowPlayingTrack}
+          client:load
         />
       </PageContainer>
-
-      <PageContainer>TEST</PageContainer>
-      <PageContainer>TEST</PageContainer>
     </div>
   </body>
 </html>

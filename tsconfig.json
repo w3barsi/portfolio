@@ -1,12 +1,24 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "include": [
+      "./src/*" 
+    ],
+    "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@sections/*": ["src/sections/*"],
-      "@api/*": ["src/pages/api/*"],
-      "@appTypes/*": ["src/types/*"]
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@sections/*": [
+        "src/sections/*"
+      ],
+      "@api/*": [
+        "src/pages/api/*"
+      ],
+      "@appTypes/*": [
+        "src/types/*"
+      ]
     }
   }
 }

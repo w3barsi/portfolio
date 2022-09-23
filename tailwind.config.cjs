@@ -2,6 +2,7 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
+  mode: 'jit',
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
@@ -35,6 +36,8 @@ module.exports = {
         'c-urgent_yellow': '#fabd2f',
         'c-urgent_green': '#8ec07c',
         'c-urgent_blue': '#91DDF2',
+
+        'spotify-green': '#1fdf64'
       },
     },
   },
