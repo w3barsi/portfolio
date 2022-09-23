@@ -11,11 +11,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/vercel": "^2.0.0"
   },
   "devDependencies": {
     "@astrojs/preact": "^1.1.0",
     "@astrojs/tailwind": "^2.0.0",
+    "@astrojs/vercel": "^2.0.0",
     "@types/node": "^18.7.18",
     "@types/react": "^18.0.20",
     "astro": "^1.2.4",
