@@ -7,17 +7,3 @@ const SPOTIFY_SCOPES =
   'ugc-image-upload user-read-playback-state user-modify-playback-state user-read-currently-playing app-remote-control streaming playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public user-follow-modify user-follow-read user-read-playback-position user-top-read user-read-recently-played user-library-modify user-library-read user-read-email user-read-private';
 
 
-console.log(`curl -d client_id=${SPOTIFY_CLIENT_ID} \\
-    -d client_secret=${SPOTIFY_CLIENT_SECRET} \\
-    -d grant_type=authorization_code \\
-    -d code=${SPOTIFY_REFRESH_TOKEN} \\
-    -d redirect_uri=https://localhost:8888 \\
-    https://accounts.spotify.com/api/token
-`);
-
-console.log(`
-https://accounts.spotify.com/authorize?response_type=code&client_id=${SPOTIFY_CLIENT_ID}&scope=${SPOTIFY_SCOPES}&redirect_uri=https://localhost:8888`);
-
-//https://accounts.spotify.com/authorize?response_type=code&client_id=cbd517a2fb3043b997c184c482b70c5e&scope=ugc-image-upload user-read-playback-state user-modify-playback-state user-read-currently-playing app-remote-control streaming playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public user-follow-modify user-follow-read user-read-playback-position user-top-read user-read-recently-played user-library-modify user-library-read user-read-email user-read-private&redirect_uri=https://localhost:8888
-
-

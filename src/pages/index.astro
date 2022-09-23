@@ -4,27 +4,28 @@ import PageContainer from '../components/Layouts/PageContainer.astro';
 import Header from '../components/Header.astro';
 import { Nav } from '../components/Header.astro';
 
+import type { NowPlayingTrackResponse } from '@api/now';
 // Types Import
 
-/*const URL = import.meta.env.URL;*/
+const URL = import.meta.env.URL;
 
-/*const nowPlayingResponse = await fetch(`${URL}/now`);*/
-/*const nowPlayingTrack =*/
-/*(await nowPlayingResponse.json()) as NowPlayingTrackResponse;*/
+const nowPlayingResponse = await fetch(`${URL}/now`);
+const nowPlayingTrack =
+(await nowPlayingResponse.json()) as NowPlayingTrackResponse;
 
-/*const tracksResponse = await fetch(`${URL}/tracks`);*/
-/*const tracks = await tracksResponse.json();*/
+const tracksResponse = await fetch(`${URL}/tracks`);
+const { tracks } = await tracksResponse.json();
 
-/*const artistResponse = await fetch(`${URL}/artists`);*/
-/*const artists = await artistResponse.json();*/
+const artistResponse = await fetch(`${URL}/artists`);
+const { artists } = await artistResponse.json();
 
-import { TracksMockData } from '../lib/spotify-mock-data';
-import { ArtistMockData } from '../lib/spotify-mock-data';
-import { NowPlayingMockData } from '../lib/spotify-mock-data';
+/*import { TracksMockData } from '../lib/spotify-mock-data';*/
+/*import { ArtistMockData } from '../lib/spotify-mock-data';*/
+/*import { NowPlayingMockData } from '../lib/spotify-mock-data';*/
 
-const nowPlayingTrack = NowPlayingMockData;
-const { artists } = ArtistMockData;
-const { tracks } = TracksMockData;
+/*const nowPlayingTrack = NowPlayingMockData;*/
+/*const { artists } = ArtistMockData;*/
+/*const { tracks } = TracksMockData;*/
 ---
 
 <html lang="en">
