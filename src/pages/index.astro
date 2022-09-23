@@ -53,11 +53,16 @@ const { artists } = await artistResponse.json();
     <meta name="twitter:title" content="Barsi | Portfolio" />
     <meta name="twitter:description" content="Spotify stats for nexxel" />
     <meta name="twitter:image" content="/banner.png" />
+    <style>
+      .scroll::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
   </head>
 
   <body class="flex flex-col h-screen">
     <div
-      class="bg-c-bg scoll-smooth snap-y snap-mandatory h-screen overflow-scroll overflow-x-hidden"
+      class="bg-c-bg scoll-smooth snap-y snap-mandatory h-screen scroll overflow-scroll overflow-x-hidden"
     >
       <PageContainer>
         <Header current={Nav.HOME} />

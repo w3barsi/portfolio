@@ -22,7 +22,7 @@ module.exports = {
         'c-teal': '#5de4c7',
         'c-bright_pink': '#f087bd',
         'c-bright_magenta': '#d0679d',
-        'c-nexxel-pink' :'#fabec0',
+        'c-nexxel-pink': '#fabec0',
 
         'c-gray01': '#20222d',
         'c-gray02': '#272935',
@@ -37,7 +37,7 @@ module.exports = {
         'c-urgent_green': '#8ec07c',
         'c-urgent_blue': '#91DDF2',
 
-        'spotify-green': '#1fdf64'
+        'spotify-green': '#1fdf64',
       },
     },
   },

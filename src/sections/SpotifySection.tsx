@@ -1,6 +1,7 @@
 import type { SpotifySectionType } from '../types/spotify';
 import { useEffect, useState } from 'preact/hooks';
 
+import '../../scrollbar.css';
 import type { TrackResponse } from '../pages/api/tracks';
 import type { ArtistResponse } from '@api/artists';
 import ArtistRow from '@components/ArtistRow';
@@ -15,7 +16,7 @@ export default function SpotifySection({
 
   return (
     <div className="h-full w-full rounded-sm p-3 ">
-      <div className="h-full overflow-auto rounded-md bg-black p-3">
+      <div className="h-full scroll overflow-auto rounded-md bg-black p-3">
         <p className="pl-3 pb-1 text-white">Now Playing: </p>
         {nowPlaying.isPlaying && (
           <a href={nowPlaying.url} target="_blank">
@@ -30,9 +31,7 @@ export default function SpotifySection({
         )}
         {!nowPlaying.isPlaying && (
           <div className="h-24 flex justify-center items-center rounded-md p-3 transition-colors duration-200 hover:bg-[#121212]">
-            <p className="text-white">
-              Probably asleep 😴😴😴
-            </p>
+            <p className="text-white">Probably asleep 😴😴😴</p>
           </div>
         )}
 
@@ -53,7 +52,7 @@ export default function SpotifySection({
           </button>
         </div>
 
-        <div className="flex flex-col overflow-auto overflow-x-hidden  bg-gradient-to-b from-spotify-green via-[#052511] to-black p-3">
+        <div className="flex flex-col overflow-auto overflow-x-hidden overflow-y-hidden bg-gradient-to-b from-spotify-green via-[#052511] to-black p-3">
           {!tab &&
             tracks.map(
               (item: TrackResponse, index: number): JSX.Element => (
