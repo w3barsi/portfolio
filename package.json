@@ -19,6 +19,7 @@
     "@types/node": "^18.7.18",
     "@types/react": "^18.0.20",
     "astro": "^1.2.4",
+    "vercel": "^28.4.2",
     "preact": "^10.6.5",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.4",
