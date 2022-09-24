@@ -19,15 +19,15 @@ export default function SpotifySection({
       <h1 className="flex justify-center font-bold text-2xl">Spotify Stats</h1>
       <p className="mb-2">Now playing:</p>
       {nowPlaying.isPlaying ? (
+        <a href={nowPlaying.url} target="_blank">
         <div className="mb-3 py-3 h-24 flex-none hover:bg-[#121212] flex pl-3 flex-row items-center rounded-md">
-          <a href={nowPlaying.url} target="_blank">
             <img src={nowPlaying.img} height={70} width={70} />
-          </a>
           <div className="ml-3">
             <p className="leading-4 font-bold text-lg">{nowPlaying.title}</p>
             <p className="text-sm">{nowPlaying.artist}</p>
           </div>
         </div>
+        </a>
       ) : (
         <div className="h-24 py-3 mb-3 flex-none flex items-center justify-center">
           Probably asleep 😴😴😴
