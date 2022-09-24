@@ -149,7 +149,7 @@ export const TracksMockData = {
 };
 
 export const NowPlayingMockData = {
-  isPlaying: true,
+  isPlaying: false,
   artist: 'MC MONG',
   url: 'https://open.spotify.com/track/45AZlCb8clsRTfFc7IcVK5',
   title: 'Circus',

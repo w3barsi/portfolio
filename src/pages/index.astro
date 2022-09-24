@@ -1,6 +1,6 @@
 ---
 import SpotifySection from '../sections/SpotifySection';
-import PageContainer from '../components/Layouts/PageContainer.astro';
+import PageContainer from '../components/containers/PageContainer.astro';
 import Header from '../components/Header.astro';
 import { Nav } from '../components/Header.astro';
 
@@ -51,7 +51,10 @@ const { artists } = await artistResponse.json();
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Barsi | Portfolio" />
-    <meta name="twitter:description" content="who am i? what do i do? what do i listen to?" />
+    <meta
+      name="twitter:description"
+      content="who am i? what do i do? what do i listen to?"
+    />
     <meta name="twitter:image" content="/me.png" />
     <style>
       .scroll::-webkit-scrollbar {
@@ -62,7 +65,7 @@ const { artists } = await artistResponse.json();
 
   <body class="flex flex-col h-screen">
     <div
-      class="bg-c-bg scoll-smooth snap-y snap-mandatory h-screen scroll overflow-scroll overflow-x-hidden"
+      class="bg-c-bg scoll-smooth snap-y snap-mandatory h-screen scroll overflow-scroll"
     >
       <PageContainer>
         <Header current={Nav.HOME} />
