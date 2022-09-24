@@ -15,7 +15,7 @@ export default function SpotifySection({
   const [tab, setTab] = useState<number>(0);
 
   return (
-    <div className="flex flex-col p-3 m-3 bg-black max-h-full rounded-md overflow-hidden">
+    <div className="flex flex-col p-3 my-3 bg-black w-full max-h-full rounded-md overflow-hidden">
       <h1 className="flex justify-center font-bold text-2xl">Spotify Stats</h1>
       <p className="mb-2">Now playing:</p>
       {nowPlaying.isPlaying ? (
@@ -48,32 +48,30 @@ export default function SpotifySection({
           </a>
           <h3
             onClick={() => setTab(0)}
-            className={`${
-              !tab ? 'bg-spotify-green text-black' : 'bg-[#121212]'
-            } px-3 py-2 rounded-tl-md cursor-pointer`}
+            className={`${!tab ? 'bg-spotify-green text-black' : 'bg-[#121212]'
+              } px-3 py-2 rounded-tl-md cursor-pointer`}
           >
             Top Tracks
           </h3>
           <h3
             onClick={() => setTab(1)}
-            className={`${
-              tab ? 'bg-spotify-green text-black' : 'bg-[#121212]'
-            } px-3 py-2 rounded-tr-md cursor-pointer`}
+            className={`${tab ? 'bg-spotify-green text-black' : 'bg-[#121212]'
+              } px-3 py-2 rounded-tr-md cursor-pointer`}
           >
             Top Artists
           </h3>
         </div>
       </div>
       <div className="overflow-auto scroll-none bg-spotify-green p-3 rounded-md">
-        <div className="bg-black/50 p-3 rounded-md">{!tab ? 
-        tracks.map((item: TrackResponse, index: number) => (
-        <TrackRow item={item} index={index}/>
-        ))
-        :
-        artists.map((item: ArtistResponse, index: number) => (
-        <ArtistRow item={item} index={index}/>
-        ))
-        }</div>
+        <div className="bg-black/50 p-3 rounded-md">
+          {!tab
+            ? tracks.map((item: TrackResponse, index: number) => (
+              <TrackRow item={item} index={index} />
+            ))
+            : artists.map((item: ArtistResponse, index: number) => (
+              <ArtistRow item={item} index={index} />
+            ))}
+        </div>
       </div>
     </div>
   );
