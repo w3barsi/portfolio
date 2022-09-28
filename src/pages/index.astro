@@ -1,7 +1,7 @@
 ---
 import '../../styles/globals.css';
-import SpotifySection from '../sections/SpotifySection';
 import PageContainer from '../components/containers/PageContainer.astro';
+import SpotifySection from '../sections/SpotifySection';
 import Header from '../components/Header.astro';
 import { Nav } from '../components/Header.astro';
 
@@ -65,7 +65,6 @@ const { artists } = await artistResponse.json();
   </head>
 
   <body class="flex flex-col h-screen">
-  <body class="flex flex-col">
     <div
       class="bg-c-bg scoll-smooth snap-y snap-mandatory h-screen scroll overflow-scroll"
     >
